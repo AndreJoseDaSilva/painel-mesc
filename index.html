@@ -7,43 +7,55 @@
 :root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#1d2939;background:#f4f6fa}*{box-sizing:border-box}body{margin:0;padding:22px}.wrap{max-width:1000px;margin:auto;background:white;border:1px solid #dce2e9;border-radius:18px;padding:25px;box-shadow:0 8px 32px #24314b12}header{text-align:center;background:#f2f5f9;border-radius:12px;padding:24px}h1{margin:0;font-size:1.65rem}header p{margin:8px 0 0;color:#596579}.section{padding:23px 0;border-bottom:2px solid #e6eaf0}.section:last-child{border:0}h2{font-size:1.18rem;margin:0 0 15px}.muted{font-size:.89rem;color:#667085}.progress{height:8px;background:#e9edf2;border-radius:12px;overflow:hidden;margin:13px 0}.progress>div{height:100%;width:0;background:#2874b9;transition:width .2s}.check{display:flex;gap:10px;padding:9px 0;align-items:center}.check input{width:17px;height:17px;accent-color:#2563eb}.card{border:1px solid #dce2e9;border-radius:10px;margin:9px 0;overflow:hidden}.toggle{display:flex;align-items:center;gap:12px;width:100%;padding:14px;border:0;background:white;text-align:left;cursor:pointer;color:inherit;font:inherit}.toggle:hover{background:#f7f9fc}.bar{height:35px;width:7px;border-radius:5px;flex:none}.name{flex:1;font-weight:650}.arrow{color:#667085}.contents{padding:2px 15px 14px 32px}.contents[hidden]{display:none}.leaf{padding:7px 0;color:#475467;font-size:.94rem}.leaf:before{content:'↳';color:#98a2b3;margin-right:10px}.subcard{background:#f4f6f9;border-radius:8px;margin:7px 0}.subcard .toggle{background:transparent;padding:11px}.subcard .contents{padding-left:25px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.btn{border:1px solid #cbd5e1;border-radius:8px;padding:8px 12px;background:white;cursor:pointer}.btn:hover{background:#f1f5f9}.note{background:#f1f5f9;padding:14px;border-radius:9px;margin-top:16px;font-size:.89rem;color:#475467}footer{font-size:.8rem;color:#667085;text-align:center;padding-top:18px}@media(max-width:600px){body{padding:8px}.wrap{padding:13px}h1{font-size:1.35rem}.contents{padding-left:18px}}
 #estrutura .bar{width:14px;height:14px;border-radius:50%;}
 .mesc-leaf{display:flex;align-items:flex-start;gap:8px;padding:7px 0;color:#475467;font-size:.94rem}.mesc-leaf .leaf-text{flex:1}.mesc-leaf .leaf-text:before{content:'↳';color:#98a2b3;margin-right:8px}.ref-badges{display:flex;gap:4px;flex-wrap:wrap;align-items:center;justify-content:flex-end}.ref-badge{display:inline-flex;align-items:center;justify-content:center;min-width:29px;height:29px;border-radius:50%;background:#eaf0ff;color:#244d95;border:1px solid #b8c9f3;font-size:.73rem;font-weight:750;flex-shrink:0}.ref-badge.estrutura-ref{background:inherit}.mesc-leaf .ref-badges{margin-left:auto}.legend{font-size:.84rem;color:#475467;background:#eff5ff;border-radius:8px;padding:10px 12px;margin:9px 0}.leaf.estrutura-item{display:flex;gap:10px;align-items:center}.leaf.estrutura-item:before{display:none}.estrutura-item .ref-badge{min-width:35px;height:35px}.estrutura-item .item-text{flex:1}.estrutura-item{cursor:pointer;border-radius:7px;padding:8px 7px}.estrutura-item:hover,.estrutura-item:focus-visible{background:#eaf1ff;outline:2px solid #b8c9f3;outline-offset:1px}.mesc-leaf.matched{background:#fff4d6;border-radius:7px;padding:8px;outline:2px solid #eab54b}.mesc-leaf.matched .leaf-text{color:#273449;font-weight:650}@media(max-width:600px){.mesc-leaf{flex-wrap:wrap}.mesc-leaf .ref-badges{justify-content:flex-start;margin-left:14px}}
+
+.config-panel{background:#f6f8fc;border:1px solid #dce2e9;border-radius:12px;padding:17px;margin:12px 0 18px}.config-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.config-field label{display:block;font-weight:650;font-size:.88rem;margin-bottom:6px}.config-field select{width:100%;border:1px solid #cbd5e1;background:white;border-radius:8px;padding:10px;color:#1d2939;font:inherit}.config-summary{margin-top:13px;padding:11px 12px;background:white;border:1px solid #e0e6ee;border-radius:8px;font-size:.9rem;line-height:1.6}.config-summary strong{color:#273449}.config-warning{margin-top:9px;padding:10px 12px;background:#fff6e6;border-left:4px solid #d97706;border-radius:6px;font-size:.85rem;color:#754b16}.estrutura-item.omitted{background:#f3f4f6;color:#7b8494;opacity:.76}.estrutura-item.omitted .item-text{text-decoration:line-through}.estrutura-item.omitted .ref-badge{filter:grayscale(65%);opacity:.65}.status-pill{font-size:.72rem;font-weight:700;padding:4px 8px;border-radius:999px;white-space:nowrap;background:#edf3fc;color:#315d93}.status-pill.omit{background:#e5e7eb;color:#586174}.status-pill.special{background:#fff1d6;color:#895a10}.estrutura-item .item-text{min-width:0}.estrutura-item:focus-visible{outline:2px solid #2563eb}.config-help{font-size:.83rem;color:#667085;margin:9px 0 0}@media(max-width:700px){.config-grid{grid-template-columns:1fr}.estrutura-item{flex-wrap:wrap}.status-pill{margin-left:45px}}
+
+/* Classificação prática das páginas do Missal */
+.marcacao-pill{display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:750;padding:5px 10px;border-radius:7px;white-space:nowrap;margin-left:auto}
+.marcacao-pill.marcar{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.marcacao-pill.verificar{background:#FDE68A;color:#854D0E;border:1px solid #F59E0B}
+.marcacao-pill.nao-marcar{background:#e5e7eb;color:#475569;border:1px solid #cbd5e1}
+.marcacao-pill.omitida{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
+.marcacao-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
+@media(max-width:700px){.marcacao-pill{margin-left:45px}}
+.preparo-panel{border:1px solid #d7e1ec;background:#f8fafc;border-radius:12px;padding:16px;margin:15px 0}.preparo-panel h3{margin:0 0 8px;font-size:1.05rem}.preparo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preparo-list{margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.91rem}.preparo-list li{padding:2px 0}.preparo-note{font-size:.84rem;color:#596579;margin:10px 0 0}.preparo-ref{font-weight:750;color:#344054}@media(max-width:650px){.preparo-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body><main class="wrap"><header><h1>✝ PAINEL INTEGRADO MESC</h1><p>Checklist de preparação · Estrutura da Missa · Mapa do Missal Romano</p><p>O objetivo deste arquivo é apenas estudo</p></header>
 <section class="section"><h2>☑ 1. Checklist de preparação</h2><div class="muted" id="count"></div><div class="progress"><div id="progressBar"></div></div><div id="checklist"></div><button class="btn" id="reset">Limpar checklist</button></section>
-<section class="section"><h2>☷ 2. Mapa da estrutura da Missa</h2><p class="muted">Clique em um subitem (1A, 1B... 4V) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div id="estrutura"></div></section>
-<section class="section"><div class="toolbar"><h2>📖 3. Mapa do Missal Romano</h2><div><button class="btn" id="expand">Expandir tudo</button> <button class="btn" id="collapse">Recolher tudo</button></div></div><p class="muted">Clique na seção principal e depois no subitem para visualizar o terceiro nível. Os círculos 1A, 2F etc. indicam a correspondência com a estrutura da Missa.</p><div id="missal"></div><div class="note"><strong>Observação:</strong> este é um mapa didático das principais divisões do Missal, não uma transcrição literal do índice. Os círculos indicam relações didáticas; nem todo texto do calendário corresponde a uma etapa isolada. A numeração das páginas será incluída após a conferência do exemplar da paróquia. Eu, André, preciso providenciar umas fotos do índice do Missal..</div></section>
+<section class="section"><h2>☷ 2. Mapa da estrutura da Missa</h2><p class="muted">Clique em um subitem (1A, 1B... 4U) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div class="config-panel"><div class="config-grid"><div class="config-field"><label for="tipoMissa">1. Tipo de celebração</label><select id="tipoMissa"><option value="domingo">Dominical</option><option value="ferial">Ferial (dia de semana)</option><option value="solenidade">Solenidade</option><option value="festa">Festa</option><option value="memoria">Memória de santo</option></select></div><div class="config-field"><label for="tempoLiturgico">2. Tempo litúrgico</label><select id="tempoLiturgico"><option value="comum">Tempo Comum</option><option value="advento">Advento</option><option value="natal">Natal</option><option value="quaresma">Quaresma</option><option value="semanaSanta">Semana Santa</option><option value="triduo">Tríduo Pascal</option><option value="pascal">Tempo Pascal</option></select></div><div class="config-field"><label for="celebracaoEspecial">3. Celebração específica</label><select id="celebracaoEspecial"><option value="habitual">Celebração habitual</option><option value="solenidade">Solenidade específica</option><option value="ritual">Missa ritual (ex.: Matrimônio)</option><option value="exequias">Missa exequial</option></select></div></div><div id="resumoConfiguracao" class="config-summary" aria-live="polite"></div><p class="config-help">O mapa mantém todos os momentos e as letras originais. Os elementos não previstos são identificados como <strong>Omitido</strong>, sem desaparecer.</p></div><div class="marcacao-legend"><span class="marcacao-pill marcar">Marcar</span><span class="marcacao-pill verificar">Verificar</span><span class="marcacao-pill nao-marcar">Não marcar</span><span class="muted">Baseado na apostila da formação; confirmar escolhas e fitas na prática.</span></div><div class="preparo-panel" id="preparoMissal"><h3>📑 Páginas a preparar no Missal</h3><p class="muted">Lista de estudo baseada na apostila de formação da paróquia. Não representa quantidade de fitas; confirme as escolhas e páginas com o sacerdote.</p><div class="preparo-grid"><div><strong>🟢 Marcar</strong><ul class="preparo-list" id="listaMarcar"></ul></div><div><strong>🟡 Verificar com o sacerdote</strong><ul class="preparo-list" id="listaVerificar"></ul></div></div><p class="preparo-note" id="notaPreparo"></p></div><div id="estrutura"></div></section>
+<section class="section"><div class="toolbar"><h2>📖 3. Mapa do Missal Romano</h2><div><button class="btn" id="expand">Expandir tudo</button> <button class="btn" id="collapse">Recolher tudo</button></div></div><p class="muted">Clique na seção principal e depois no subitem para visualizar o terceiro nível. Os círculos 1A, 2F etc. indicam a correspondência com a estrutura da Missa.</p><div id="missal"></div><div class="note"><strong>Observação:</strong> este é um mapa didático das principais divisões do Missal, não uma transcrição literal do índice. Os círculos indicam relações didáticas; nem todo texto do calendário corresponde a uma etapa isolada. A numeração das páginas será incluída após a conferência do exemplar da paróquia. André precisa providenciar umas fotos do índice do Missal.</div></section>
 <footer>Painel de estudo para formação de Ministro Extraordinário da Sagrada Comunhão</footer></main>
 <script>
-const tarefas=['Identificar a celebração','Determinar a estrutura da Missa','Localizar os textos no Missal','Preparar e conferir as fitas','Acompanhar o Missal durante a celebração'];
+const tarefas=['Identificar a celebração','Determinar a estrutura da Missa','Confirmar com o sacerdote os textos e fórmulas que serão utilizados','Localizar os textos no Missal','Preparar e conferir as fitas','Acompanhar o Missal durante a celebração'];
 const estrutura=[
 {n:'Ritos Iniciais',c:'#2563EB',s:['Entrada e saudação','Ato penitencial','Senhor, tende piedade','Glória, quando previsto','Oração da coleta']},
 {n:'Liturgia da Palavra',c:'#16A34A',s:['Primeira leitura e salmo','Segunda leitura, quando prevista','Aclamação e Evangelho','Homilia','Profissão de fé, quando prevista','Oração universal']},
-{n:'Liturgia Eucarística',c:'#D97706',s:['Preparação das oferendas','Oração sobre as oferendas','Prefácio e Santo','Oração Eucarística e consagração','Doxologia final e grande Amém','Pai-nosso e rito da paz','Fração do pão e Comunhão','Oração depois da Comunhão']},
+{n:'Liturgia Eucarística',c:'#D97706',s:['Preparação das oferendas','Oração sobre as oferendas','Prefácios','Orações Eucarísticas','Pai-nosso e rito da paz','Fração do pão e Comunhão','Oração depois da Comunhão']},
 {n:'Ritos Finais',c:'#9333EA',s:['Avisos, quando necessários','Bênção','Despedida']}];
 const missal=[
 {n:'Próprio do Tempo',c:'#D97706',g:[{n:'Advento',s:['1º Domingo do Advento','2º Domingo do Advento','3º Domingo do Advento','4º Domingo do Advento','Dias de semana do Advento']},{n:'Natal',s:['Natal do Senhor','Sagrada Família','Santa Maria, Mãe de Deus','Epifania do Senhor','Batismo do Senhor','Dias de semana do Natal']},{n:'Quaresma',s:['Quarta-feira de Cinzas','1º ao 5º Domingo da Quaresma','Dias de semana da Quaresma']},{n:'Semana Santa e Tríduo Pascal',s:['Domingo de Ramos','Segunda a Quarta-feira Santa','Quinta-feira Santa','Sexta-feira da Paixão','Sábado Santo e Vigília Pascal']},{n:'Tempo Pascal',s:['Domingo da Páscoa','2º ao 7º Domingo da Páscoa','Dias de semana da Páscoa','Ascensão do Senhor','Pentecostes']},{n:'Tempo Comum',s:['Domingos do Tempo Comum','Dias de semana do Tempo Comum','Solenidades do Senhor nesse período']}]},
-{n:'Ordinário da Missa',c:'#2563EB',g:[{n:'Ritos Iniciais',s:['Entrada','Saudação','Ato penitencial','Senhor, tende piedade','Glória','Coleta — texto próprio em outra seção']},{n:'Liturgia da Palavra',s:['Leituras — Lecionário','Evangelho','Homilia','Profissão de fé','Oração universal']},{n:'Liturgia Eucarística',s:['Preparação das oferendas','Oração sobre as oferendas — texto próprio em outra seção','Prefácio e Santo','Oração Eucarística','Consagração e doxologia']},{n:'Rito da Comunhão',s:['Pai-nosso','Rito da paz','Fração do pão','Comunhão','Oração depois da Comunhão — texto próprio em outra seção']},{n:'Ritos Finais',s:['Bênção','Despedida']},{n:'Textos relacionados',s:['Prefácios','Orações Eucarísticas','Bênçãos solenes']}]},
+{n:'Ordinário da Missa',c:'#2563EB',g:[{n:'Ritos Iniciais',s:['Entrada','Saudação','Ato penitencial','Senhor, tende piedade','Glória','Coleta — texto próprio em outra seção']},{n:'Liturgia da Palavra',s:['Leituras — Lecionário','Evangelho','Homilia','Profissão de fé','Oração universal']},{n:'Liturgia Eucarística',s:['Preparação das oferendas','Oração sobre as oferendas — texto próprio em outra seção','Prefácios','Orações Eucarísticas']},{n:'Rito da Comunhão',s:['Pai-nosso','Rito da paz','Fração do pão','Comunhão','Oração depois da Comunhão — texto próprio em outra seção']},{n:'Ritos Finais',s:['Bênção','Despedida']},{n:'Textos relacionados',s:['Prefácios','Orações Eucarísticas','Bênçãos solenes']}]},
 {n:'Próprio dos Santos',c:'#16A34A',g:[{n:'Calendário',s:['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']},{n:'Tipos de celebração',s:['Solenidades','Festas','Memórias obrigatórias','Memórias facultativas']}]},
 {n:'Comum dos Santos',c:'#9333EA',g:[{n:'Categorias',s:['Dedicação de igreja','Bem-aventurada Virgem Maria','Mártires','Pastores','Doutores da Igreja','Virgens','Santos e Santas']},{n:'Textos',s:['Antífonas','Coleta','Oração sobre as oferendas','Oração depois da Comunhão']}]},
 {n:'Missas especiais',c:'#C2410C',g:[{n:'Missas rituais',s:['Iniciação cristã','Matrimônio','Ordenações e ministérios']},{n:'Diversas necessidades',s:['Pela Igreja','Pelas necessidades públicas','Por diversas circunstâncias']},{n:'Missas votivas',s:['Santíssima Trindade','Sagrada Eucaristia','Sagrado Coração de Jesus','Nossa Senhora']},{n:'Fiéis defuntos',s:['Exéquias','Aniversário de falecimento','Outras Missas pelos defuntos']}]},
 {n:'Apêndices e índices',c:'#64748B',g:[{n:'Textos complementares',s:['Fórmulas adicionais','Outros textos previstos na edição']},{n:'Índices',s:['Índice geral','Índices específicos, quando presentes']}]}];
-// Letras contínuas entre todas as etapas da Missa (A até V).
+// Letras contínuas entre todas as etapas da Missa (A até U).
 const refPorEtapa=[];let indiceLetra=0;
 estrutura.forEach((etapa,i)=>{refPorEtapa[i]=etapa.s.map(()=>`${i+1}${String.fromCharCode(65+indiceLetra++)}`)});
 // Referências somente quando existe uma correspondência litúrgica efetiva.
 // Para as orações próprias de cada data, a associação é indicada no formulário, não em toda linha do calendário.
 const refsMissal={
- 'Próprio do Tempo':Object.fromEntries(['Advento','Natal','Quaresma','Semana Santa e Tríduo Pascal','Tempo Pascal','Tempo Comum'].map(g=>[g,{'Orações próprias da celebração: coleta, sobre as oferendas e depois da Comunhão':['1E','3M','3S']}])) ,
+ 'Próprio do Tempo':Object.fromEntries(['Advento','Natal','Quaresma','Semana Santa e Tríduo Pascal','Tempo Pascal','Tempo Comum'].map(g=>[g,{'Orações próprias da celebração: coleta, sobre as oferendas e depois da Comunhão':['1E','3M','3R']}])) ,
  'Ordinário da Missa':{
   'Ritos Iniciais':{'Entrada':['1A'],'Saudação':['1A'],'Ato penitencial':['1B'],'Senhor, tende piedade':['1C'],'Glória':['1D'],'Coleta — texto próprio em outra seção':['1E']},
   'Liturgia da Palavra':{'Leituras — Lecionário':['2F','2G'],'Evangelho':['2H'],'Homilia':['2I'],'Profissão de fé':['2J'],'Oração universal':['2K']},
-  'Liturgia Eucarística':{'Preparação das oferendas':['3L'],'Oração sobre as oferendas — texto próprio em outra seção':['3M'],'Prefácio e Santo':['3N'],'Oração Eucarística':['3O'],'Consagração e doxologia':['3O','3P']},
-  'Rito da Comunhão':{'Pai-nosso':['3Q'],'Rito da paz':['3Q'],'Fração do pão':['3R'],'Comunhão':['3R'],'Oração depois da Comunhão — texto próprio em outra seção':['3S']},
-  'Ritos Finais':{'Bênção':['4U'],'Despedida':['4V']},
-  'Textos relacionados':{'Prefácios':['3N'],'Orações Eucarísticas':['3O','3P'],'Bênçãos solenes':['4U']}
+  'Liturgia Eucarística':{'Preparação das oferendas':['3L'],'Oração sobre as oferendas — texto próprio em outra seção':['3M'],'Prefácios':['3N'],'Orações Eucarísticas':['3O']},
+  'Rito da Comunhão':{'Pai-nosso':['3P'],'Rito da paz':['3P'],'Fração do pão':['3Q'],'Comunhão':['3Q'],'Oração depois da Comunhão — texto próprio em outra seção':['3R']},
+  'Ritos Finais':{'Bênção':['4T'],'Despedida':['4U']},
+  'Textos relacionados':{'Prefácios':['3N'],'Orações Eucarísticas':['3O'],'Bênçãos solenes':['4T']}
  },
- 'Comum dos Santos':{'Textos':{'Coleta':['1E'],'Oração sobre as oferendas':['3M'],'Oração depois da Comunhão':['3S']}},
+ 'Comum dos Santos':{'Textos':{'Coleta':['1E'],'Oração sobre as oferendas':['3M'],'Oração depois da Comunhão':['3R']}},
  'Apêndices e índices':{}
 };
 missal[0].g.forEach(g=>g.s.push('Orações próprias da celebração: coleta, sobre as oferendas e depois da Comunhão'));
@@ -59,7 +71,7 @@ function accordion(title,color,items,open=false,sub=false,section='',group=''){
   if(typeof it==='string'){
    const leaf=makeNode('div',section==='estrutura'?'leaf estrutura-item':'mesc-leaf');
    if(section==='estrutura'){
-    const ref=refPorEtapa[Number(group)][items.indexOf(it)];leaf.append(badge(ref),makeNode('span','item-text',it));leaf.tabIndex=0;leaf.setAttribute('role','button');leaf.setAttribute('aria-label','Localizar '+it+' no Mapa do Missal Romano');leaf.title='Clique para localizar no Mapa do Missal Romano';leaf.onclick=()=>localizarReferencia(ref);leaf.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();localizarReferencia(ref)}};
+    const ref=refPorEtapa[Number(group)][items.indexOf(it)];leaf.dataset.ref=ref;leaf.dataset.etapa=group;leaf.dataset.posicao=String(items.indexOf(it));leaf.append(badge(ref),makeNode('span','item-text',it));leaf.tabIndex=0;leaf.setAttribute('role','button');leaf.setAttribute('aria-label','Localizar '+it+' no Mapa do Missal Romano');leaf.title='Clique para localizar no Mapa do Missal Romano';leaf.onclick=()=>localizarReferencia(ref);leaf.onkeydown=ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();localizarReferencia(ref)}};
    }else{
     leaf.append(makeNode('span','leaf-text',it));
     const refs=refsMissal[section]?.[group]?.[it]||[];
@@ -95,6 +107,86 @@ function localizarReferencia(ref){
  // A navegação preserva as quatro seções da Missa no estado atual.
  $('missal').scrollIntoView({behavior:'smooth',block:'start'});
 }
+// Classificação inicial por referência: pode variar segundo o rito e o sacerdote.
+const marcarRefs=new Set(['1E','3M','3N','3O','3R']);
+const naoMarcarRefs=new Set(['2F','2G','2H','2I','4S','4U']); // 2K: Oração Universal requer verificação
+function classificarMarcacao(ref,estado,ritoEspecial){
+ if(estado==='Omitido')return {texto:'Omitido',classe:'omitida'};
+ if(ritoEspecial||estado==='Conferir rito')return {texto:'Verificar',classe:'verificar'};
+ if(marcarRefs.has(ref))return {texto:'Marcar',classe:'marcar'};
+ if(naoMarcarRefs.has(ref))return {texto:'Não marcar',classe:'nao-marcar'};
+ return {texto:'Verificar',classe:'verificar'};
+}
+// Regras gerais de estudo: o calendário e as rubricas próprias prevalecem.
+function atualizarCelebracao(){
+ const tipo=$('tipoMissa').value,tempo=$('tempoLiturgico').value,especial=$('celebracaoEspecial').value;
+ const domingo=tipo==='domingo',solenidade=tipo==='solenidade'||especial==='solenidade',festa=tipo==='festa';
+ const especialRito=especial==='ritual'||especial==='exequias';
+ const periodoEspecial=tempo==='triduo'||tempo==='semanaSanta';
+ const gloria=solenidade||festa||(domingo&&!['advento','quaresma'].includes(tempo));
+ const credo=solenidade||domingo;
+ const segunda=solenidade||domingo;
+ const homiliaObrigatoria=domingo; // Também obrigatória nos dias de preceito; verificar calendário local.
+ const status={};
+ if(!gloria)status['1-3']='Omitido';
+ if(!segunda)status['2-1']='Omitido';
+ if(!credo)status['2-4']='Omitido';
+ if(!homiliaObrigatoria)status['2-3']='Recomendada';
+ if(tempo==='quaresma')status['2-2']='Sem Aleluia';
+ if(periodoEspecial||especialRito){
+   // Nessas celebrações não se aplica cegamente a estrutura comum.
+   Object.keys(status).forEach(k=>{if(status[k]==='Omitido')status[k]='Conferir rito'});
+ }
+ $('estrutura').querySelectorAll('.estrutura-item').forEach(el=>{
+   const st=status[el.dataset.etapa+'-'+el.dataset.posicao]||'';
+   el.classList.toggle('omitted',st==='Omitido');
+   // Remove TODOS os indicadores anteriores antes de reconstruir a linha.
+   // Assim nunca haverá duas etiquetas "Omitido", mesmo após trocar os seletores.
+   el.querySelectorAll('.status-pill, .marcacao-pill').forEach(indicador=>indicador.remove());
+   if(st==='Omitido'){
+     el.append(makeNode('span','status-pill omit','Omitido'));
+   }else{
+     if(st)el.append(makeNode('span','status-pill '+(st==='Conferir rito'?'special':''),st));
+     const classificacao=classificarMarcacao(el.dataset.ref,st,periodoEspecial||especialRito);
+     el.append(makeNode('span','marcacao-pill '+classificacao.classe,classificacao.texto));
+   }
+   el.title=(st?st+' — ':'')+'Clique para localizar no Mapa do Missal Romano';
+ });
+ // Relação prática: exibe apenas os elementos efetivamente previstos e as verificações.
+ const listaMarcar=$('listaMarcar'),listaVerificar=$('listaVerificar');
+ listaMarcar.replaceChildren();listaVerificar.replaceChildren();
+ const nomeElemento={};
+ estrutura.forEach((parte,i)=>parte.s.forEach((nome,j)=>{nomeElemento[refPorEtapa[i][j]]=nome}));
+ const referenciasMarcar=['1E','3M','3N','3O','3R'];
+ const referenciasVerificar=['1A','1B','1C','1D','2J','2K','3L','3P','3Q','4T'];
+ function itemPreparo(ref,extra=''){
+   const li=makeNode('li','');
+   li.append(makeNode('span','preparo-ref',ref+' — '),document.createTextNode(nomeElemento[ref]||ref));
+   if(extra)li.append(makeNode('span','muted',' ('+extra+')'));
+   return li;
+ }
+ const porRef={};$('estrutura').querySelectorAll('.estrutura-item').forEach(el=>porRef[el.dataset.ref]=el);
+ for(const ref of referenciasMarcar){
+   if(porRef[ref]?.classList.contains('omitted'))continue;
+   listaMarcar.append(itemPreparo(ref,ref==='3N'?'prefácio escolhido':ref==='3O'?'oração eucarística escolhida':''));
+ }
+ for(const ref of referenciasVerificar){
+   if(porRef[ref]?.classList.contains('omitted'))continue;
+   const el=porRef[ref];if(!el||!el.querySelector('.marcacao-pill.verificar'))continue;
+   listaVerificar.append(itemPreparo(ref));
+ }
+ $('notaPreparo').textContent=(periodoEspecial||especialRito?'Celebração com rito próprio: esta lista é apenas um ponto de partida e deve ser integralmente conferida. ':'')+'As três orações próprias (1E, 3M e 3R) costumam estar reunidas no formulário da celebração. A apostila descreve os textos, mas não fixa quais fitas usar nem as páginas do exemplar da paróquia.';
+ const nomes={domingo:'Missa dominical',ferial:'Missa ferial',solenidade:'Solenidade',festa:'Festa',memoria:'Memória de santo'};
+ const tempos={comum:'Tempo Comum',advento:'Advento',natal:'Natal',quaresma:'Quaresma',semanaSanta:'Semana Santa',triduo:'Tríduo Pascal',pascal:'Tempo Pascal'};
+ const situacoes={habitual:'celebração habitual',solenidade:'solenidade específica',ritual:'Missa ritual',exequias:'Missa exequial'};
+ const detalhe=periodoEspecial||especialRito?'Nesta celebração, há ritos próprios que podem substituir ou acrescentar partes da sequência comum. Confira o calendário e os livros litúrgicos antes de preparar as fitas.':
+ (especial==='solenidade'&&tipo!=='solenidade'?'A solenidade prevalece sobre a classificação geral escolhida quando liturgicamente permitida. Confirme a celebração concreta no calendário.':'Esta é uma indicação geral de estudo. Festas do Senhor, dias de preceito e outras celebrações podem ter exceções.');
+ const aviso=periodoEspecial||especialRito||especial==='solenidade'&&tipo!=='solenidade';
+ const sum=$('resumoConfiguracao');sum.replaceChildren();
+ const linha=makeNode('div','');linha.append(makeNode('strong','',nomes[tipo]+' · '+tempos[tempo]+' · '),document.createTextNode(situacoes[especial]));sum.append(linha);
+ const resumo=makeNode('div','',`Glória: ${periodoEspecial||especialRito?'conferir rito':gloria?'previsto':'omitido'} · Segunda leitura antes do Evangelho: ${periodoEspecial||especialRito?'conferir rito':segunda?'normalmente prevista':'normalmente omitida'} · Credo: ${periodoEspecial||especialRito?'conferir rito':credo?'previsto':'normalmente omitido'}`);sum.append(resumo);
+ sum.append(makeNode('div',aviso?'config-warning':'config-help',detalhe));
+}
 function render(){
  estrutura.forEach((x,i)=>$('estrutura').append(accordion((i+1)+'. '+x.n,x.c,x.s,false,false,'estrutura',String(i))));
  missal.forEach((x,i)=>$('missal').append(accordion((i+1)+'. '+x.n,x.c,x.g,false,false,x.n)));
@@ -106,4 +198,6 @@ $('reset').onclick=()=>{done=[];try{localStorage.removeItem(storageKey)}catch{}d
 function setAll(open){$('missal').querySelectorAll('.toggle').forEach(btn=>{const content=btn.nextElementSibling,arrow=btn.querySelector('.arrow');content.hidden=!open;btn.setAttribute('aria-expanded',String(open));arrow.textContent=open?'▴':'▾'})}
 $('expand').onclick=()=>setAll(true);$('collapse').onclick=()=>setAll(false);
 render();drawChecklist();
+['tipoMissa','tempoLiturgico','celebracaoEspecial'].forEach(id=>$(id).addEventListener('change',atualizarCelebracao));
+atualizarCelebracao();
 </script></body></html>

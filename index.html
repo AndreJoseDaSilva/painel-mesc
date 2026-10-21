@@ -18,15 +18,59 @@
 .marcacao-pill.omitida{background:#f3f4f6;color:#6b7280;border:1px dashed #9ca3af}
 .marcacao-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}
 @media(max-width:700px){.marcacao-pill{margin-left:45px}}
-.preparo-panel{border:1px solid #d7e1ec;background:#f8fafc;border-radius:12px;padding:16px;margin:15px 0}.preparo-panel h3{margin:0 0 8px;font-size:1.05rem}.preparo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preparo-list{margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.91rem}.preparo-list li{padding:2px 0}.preparo-note{font-size:.84rem;color:#596579;margin:10px 0 0}.preparo-ref{font-weight:750;color:#344054}@media(max-width:650px){.preparo-grid{grid-template-columns:1fr}}
+.preparo-panel{border:1px solid #d7e1ec;background:#ffffff;border-radius:12px;padding:16px;margin:15px 0}.preparo-panel h3{margin:0 0 8px;font-size:1.05rem}.preparo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.preparo-list{margin:8px 0 0;padding-left:20px;line-height:1.7;font-size:.91rem}.preparo-list li{padding:2px 0}.preparo-note{font-size:.84rem;color:#596579;margin:10px 0 0}.preparo-ref{font-weight:750;color:#344054}@media(max-width:650px){.preparo-grid{grid-template-columns:1fr}}
+
+/* Expansão independente das quatro áreas */
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;border:0;background:transparent;color:inherit;font:inherit;font-weight:inherit;text-align:left;cursor:pointer;padding:3px 0;border-radius:6px}
+.section-heading:hover{color:#2563eb}.section-heading:focus-visible{outline:2px solid #2563eb;outline-offset:4px}.section-chevron{font-size:1rem;color:#64748b;flex-shrink:0}.section-body[hidden]{display:none!important}
+.preparo-panel .section-heading{font-size:inherit}
+
+/* Painel de preparação com a mesma aparência e alinhamento do checklist. */
+.paineis-estudo .secao-preparo .preparo-panel{border:0;border-radius:0;background:#fff;padding:0;margin:0;box-shadow:none}
+.paineis-estudo .secao-preparo .preparo-panel h3{font-size:1.18rem;margin:0 0 15px;line-height:normal}
+.paineis-estudo .secao-preparo .preparo-panel .section-heading{padding:3px 0}
+/* Uma única grade: cada linha compartilha a altura do painel mais alto. */
+.paineis-estudo{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+.paineis-estudo>.section{min-width:0;border-bottom:2px solid #e6eaf0}
+.paineis-estudo #preparoMissal{margin:0}
+@media(min-width:1100px){
+ .wrap{max-width:1500px}
+ .paineis-estudo{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;row-gap:24px}
+ .paineis-estudo .preparo-grid{grid-template-columns:1fr}
+}
+
+/* Mesma quebra de layout dos painéis: os dois primeiros combos acompanham as colunas. */
+.config-title{font-size:1rem;margin:0 0 12px}
+.config-grid{grid-template-columns:minmax(0,1fr)}
+@media(min-width:1100px){
+ .config-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .config-field:nth-child(3){grid-column:1 / -1}
+}
 </style>
 </head>
 <body><main class="wrap"><header><h1>✝ PAINEL INTEGRADO MESC</h1><p>Checklist de preparação · Estrutura da Missa · Mapa do Missal Romano</p><p>O objetivo deste arquivo é apenas estudo</p></header>
-<section class="section"><h2>☑ 1. Checklist de preparação</h2><div class="muted" id="count"></div><div class="progress"><div id="progressBar"></div></div><div id="checklist"></div><button class="btn" id="reset">Limpar checklist</button></section>
-<section class="section"><h2>☷ 2. Mapa da estrutura da Missa</h2><p class="muted">Clique em um subitem (1A, 1B... 4U) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div class="config-panel"><div class="config-grid"><div class="config-field"><label for="tipoMissa">1. Tipo de celebração</label><select id="tipoMissa"><option value="domingo">Dominical</option><option value="ferial">Ferial (dia de semana)</option><option value="solenidade">Solenidade</option><option value="festa">Festa</option><option value="memoria">Memória de santo</option></select></div><div class="config-field"><label for="tempoLiturgico">2. Tempo litúrgico</label><select id="tempoLiturgico"><option value="comum">Tempo Comum</option><option value="advento">Advento</option><option value="natal">Natal</option><option value="quaresma">Quaresma</option><option value="semanaSanta">Semana Santa</option><option value="triduo">Tríduo Pascal</option><option value="pascal">Tempo Pascal</option></select></div><div class="config-field"><label for="celebracaoEspecial">3. Celebração específica</label><select id="celebracaoEspecial"><option value="habitual">Celebração habitual</option><option value="solenidade">Solenidade específica</option><option value="ritual">Missa ritual (ex.: Matrimônio)</option><option value="exequias">Missa exequial</option></select></div></div><div id="resumoConfiguracao" class="config-summary" aria-live="polite"></div><p class="config-help">O mapa mantém todos os momentos e as letras originais. Os elementos não previstos são identificados como <strong>Omitido</strong>, sem desaparecer.</p></div><div class="marcacao-legend"><span class="marcacao-pill marcar">Marcar</span><span class="marcacao-pill verificar">Verificar</span><span class="marcacao-pill nao-marcar">Não marcar</span><span class="muted">Baseado na apostila da formação; confirmar escolhas e fitas na prática.</span></div><div class="preparo-panel" id="preparoMissal"><h3>📑 Páginas a preparar no Missal</h3><p class="muted">Lista de estudo baseada na apostila de formação da paróquia. Não representa quantidade de fitas; confirme as escolhas e páginas com o sacerdote.</p><div class="preparo-grid"><div><strong>🟢 Marcar</strong><ul class="preparo-list" id="listaMarcar"></ul></div><div><strong>🟡 Verificar com o sacerdote</strong><ul class="preparo-list" id="listaVerificar"></ul></div></div><p class="preparo-note" id="notaPreparo"></p></div><div id="estrutura"></div></section>
-<section class="section"><div class="toolbar"><h2>📖 3. Mapa do Missal Romano</h2><div><button class="btn" id="expand">Expandir tudo</button> <button class="btn" id="collapse">Recolher tudo</button></div></div><p class="muted">Clique na seção principal e depois no subitem para visualizar o terceiro nível. Os círculos 1A, 2F etc. indicam a correspondência com a estrutura da Missa.</p><div id="missal"></div><div class="note"><strong>Observação:</strong> este é um mapa didático das principais divisões do Missal, não uma transcrição literal do índice. Os círculos indicam relações didáticas; nem todo texto do calendário corresponde a uma etapa isolada. A numeração das páginas será incluída após a conferência do exemplar da paróquia. André precisa providenciar umas fotos do índice do Missal.</div></section>
+<section class="section"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoChecklist">☑ 1. Checklist de preparação <span class="section-chevron">▴</span></button></h2><div id="conteudoChecklist" class="section-body"><div class="muted" id="count"></div><div class="progress"><div id="progressBar"></div></div><div id="checklist"></div><button class="btn" id="reset">Limpar checklist</button></div></section>
+<section class="section"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoEstrutura">☷ 2. Mapa da estrutura da Missa <span class="section-chevron">▴</span></button></h2><div id="conteudoEstrutura" class="section-body"><p class="muted">Clique em um subitem (1A, 1B... 4U) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div class="config-panel"><h3 class="config-title"><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoConfiguracao">⚙ Configuração da celebração <span class="section-chevron">▴</span></button></h3><div id="conteudoConfiguracao" class="section-body"><div class="config-grid"><div class="config-field"><label for="tipoMissa">1. Tipo de celebração</label><select id="tipoMissa"><option value="domingo">Dominical</option><option value="ferial">Ferial (dia de semana)</option><option value="solenidade">Solenidade</option><option value="festa">Festa</option><option value="memoria">Memória de santo</option></select></div><div class="config-field"><label for="tempoLiturgico">2. Tempo litúrgico</label><select id="tempoLiturgico"><option value="comum">Tempo Comum</option><option value="advento">Advento</option><option value="natal">Natal</option><option value="quaresma">Quaresma</option><option value="semanaSanta">Semana Santa</option><option value="triduo">Tríduo Pascal</option><option value="pascal">Tempo Pascal</option></select></div><div class="config-field"><label for="celebracaoEspecial">3. Celebração específica</label><select id="celebracaoEspecial"><option value="habitual">Celebração habitual</option><option value="solenidade">Solenidade específica</option><option value="ritual">Missa ritual (ex.: Matrimônio)</option><option value="exequias">Missa exequial</option></select></div></div><div id="resumoConfiguracao" class="config-summary" aria-live="polite"></div><p class="config-help">O mapa mantém todos os momentos e as letras originais. Os elementos não previstos são identificados como <strong>Omitido</strong>, sem desaparecer.</p></div></div><div class="marcacao-legend"><span class="marcacao-pill marcar">Marcar</span><span class="marcacao-pill verificar">Verificar</span><span class="marcacao-pill nao-marcar">Não marcar</span><span class="muted">Baseado na apostila da formação; confirmar escolhas e fitas na prática.</span></div><div class="preparo-panel" id="preparoMissal"><h3><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoPreparo">📑 Páginas a preparar no Missal <span class="section-chevron">▴</span></button></h3><div id="conteudoPreparo" class="section-body"><p class="muted">Lista de estudo baseada na apostila de formação da paróquia. Não representa quantidade de fitas; confirme as escolhas e páginas com o sacerdote.</p><div class="preparo-grid"><div><strong>🟢 Marcar</strong><ul class="preparo-list" id="listaMarcar"></ul></div><div><strong>🟡 Verificar com o sacerdote</strong><ul class="preparo-list" id="listaVerificar"></ul></div></div><p class="preparo-note" id="notaPreparo"></p></div></div><div id="estrutura"></div></div></section>
+<section class="section"><div class="toolbar"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoMissal">📖 3. Mapa do Missal Romano <span class="section-chevron">▴</span></button></h2><div><button class="btn" id="expand">Expandir tudo</button> <button class="btn" id="collapse">Recolher tudo</button></div></div><div id="conteudoMissal" class="section-body"><p class="muted">Clique na seção principal e depois no subitem para visualizar o terceiro nível. Os círculos 1A, 2F etc. indicam a correspondência com a estrutura da Missa.</p><div id="missal"></div><div class="note"><strong>Observação:</strong> este é um mapa didático das principais divisões do Missal, não uma transcrição literal do índice. Os círculos indicam relações didáticas; nem todo texto do calendário corresponde a uma etapa isolada. A numeração das páginas será incluída após a conferência do exemplar da paróquia. Eu, André, preciso providenciar umas fotos do índice do Missal..</div></div></section>
 <footer>Painel de estudo para formação de Ministro Extraordinário da Sagrada Comunhão</footer></main>
 <script>
+
+// Move os painéis existentes sem recriá-los: mantém estados e referências.
+(function organizarPaineis(){
+ const checklist=document.getElementById('conteudoChecklist').closest('section');
+ const estrutura=document.getElementById('conteudoEstrutura').closest('section');
+ const missal=document.getElementById('conteudoMissal').closest('section');
+ const preparo=document.getElementById('preparoMissal');
+ const grade=document.createElement('div');
+ grade.className='paineis-estudo';
+ const secaoPreparo=document.createElement('section');
+ secaoPreparo.className='section secao-preparo';
+ secaoPreparo.setAttribute('aria-label','Páginas a preparar no Missal');
+ checklist.parentNode.insertBefore(grade,checklist);
+ secaoPreparo.appendChild(preparo);
+ // Ordem DOM = ordem vertical no celular; em telas largas, pares por linha.
+ grade.append(checklist,secaoPreparo,estrutura,missal);
+})();
 const tarefas=['Identificar a celebração','Determinar a estrutura da Missa','Confirmar com o sacerdote os textos e fórmulas que serão utilizados','Localizar os textos no Missal','Preparar e conferir as fitas','Acompanhar o Missal durante a celebração'];
 const estrutura=[
 {n:'Ritos Iniciais',c:'#2563EB',s:['Entrada e saudação','Ato penitencial','Senhor, tende piedade','Glória, quando previsto','Oração da coleta']},
@@ -91,6 +135,8 @@ function abrirConteudo(card){
  btn.querySelector('.arrow').textContent='▴';
 }
 function localizarReferencia(ref){
+ const painelMissal=$('conteudoMissal');
+ if(painelMissal.hidden){painelMissal.hidden=false;const botao=document.querySelector('[aria-controls="conteudoMissal"]');botao.setAttribute('aria-expanded','true');botao.querySelector('.section-chevron').textContent='▴'}
  // Recolhe todas as seções e subseções, eliminando qualquer seleção anterior.
  setAll(false);
  $('missal').querySelectorAll('.matched').forEach(el=>el.classList.remove('matched'));
@@ -200,4 +246,18 @@ $('expand').onclick=()=>setAll(true);$('collapse').onclick=()=>setAll(false);
 render();drawChecklist();
 ['tipoMissa','tempoLiturgico','celebracaoEspecial'].forEach(id=>$(id).addEventListener('change',atualizarCelebracao));
 atualizarCelebracao();
+
+// Áreas principais independentes: preservam o estado dos dados e dos subitens.
+function configurarSecoesRecolhiveis(){
+ document.querySelectorAll('.section-heading[aria-controls]').forEach(btn=>{
+  const painel=document.getElementById(btn.getAttribute('aria-controls'));
+  if(!painel)return;
+  btn.addEventListener('click',()=>{
+   const abrir=painel.hidden; painel.hidden=!abrir;
+   btn.setAttribute('aria-expanded',String(abrir));
+   btn.querySelector('.section-chevron').textContent=abrir?'▴':'▾';
+  });
+ });
+}
+configurarSecoesRecolhiveis();
 </script></body></html>

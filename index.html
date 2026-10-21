@@ -46,11 +46,29 @@
  .config-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
  .config-field:nth-child(3){grid-column:1 / -1}
 }
+
+/* Sequência de fitas e três momentos dos Oremos */
+.fita-item{margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid #e6eaf0}
+.fita-item:last-child{border-bottom:0}
+.fita-descricao{margin:4px 0;color:#596579;font-size:.86rem;line-height:1.45}
+.fita-momentos{margin:5px 0 0;padding-left:20px;line-height:1.55}
+.fita-momentos li{margin:4px 0}
+/* Cada fita abre/recolhe individualmente, sem interferir nos outros painéis. */
+.fita-detalhes{min-width:0}
+.fita-cabecalho{cursor:pointer;font-weight:700;padding:8px 4px;line-height:1.45;border-radius:6px;list-style-position:outside}
+.fita-cabecalho:hover{background:#f1f5f9}
+.fita-cabecalho:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
+.fita-conteudo{padding:0 5px 7px 10px}
+/* Seta à direita, longe da numeração automática da lista ordenada. */
+.fita-cabecalho{display:flex;align-items:center;justify-content:space-between;gap:10px;list-style:none}
+.fita-cabecalho::-webkit-details-marker{display:none}
+.fita-cabecalho::after{content:'▾';flex:none;color:#64748b;font-size:1rem;margin-left:auto}
+.fita-detalhes[open]>.fita-cabecalho::after{content:'▴'}
 </style>
 </head>
 <body><main class="wrap"><header><h1>✝ PAINEL INTEGRADO MESC</h1><p>Checklist de preparação · Estrutura da Missa · Mapa do Missal Romano</p><p>O objetivo deste arquivo é apenas estudo</p></header>
 <section class="section"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoChecklist">☑ 1. Checklist de preparação <span class="section-chevron">▴</span></button></h2><div id="conteudoChecklist" class="section-body"><div class="muted" id="count"></div><div class="progress"><div id="progressBar"></div></div><div id="checklist"></div><button class="btn" id="reset">Limpar checklist</button></div></section>
-<section class="section"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoEstrutura">☷ 2. Mapa da estrutura da Missa <span class="section-chevron">▴</span></button></h2><div id="conteudoEstrutura" class="section-body"><p class="muted">Clique em um subitem (1A, 1B... 4U) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div class="config-panel"><h3 class="config-title"><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoConfiguracao">⚙ Configuração da celebração <span class="section-chevron">▴</span></button></h3><div id="conteudoConfiguracao" class="section-body"><div class="config-grid"><div class="config-field"><label for="tipoMissa">1. Tipo de celebração</label><select id="tipoMissa"><option value="domingo">Dominical</option><option value="ferial">Ferial (dia de semana)</option><option value="solenidade">Solenidade</option><option value="festa">Festa</option><option value="memoria">Memória de santo</option></select></div><div class="config-field"><label for="tempoLiturgico">2. Tempo litúrgico</label><select id="tempoLiturgico"><option value="comum">Tempo Comum</option><option value="advento">Advento</option><option value="natal">Natal</option><option value="quaresma">Quaresma</option><option value="semanaSanta">Semana Santa</option><option value="triduo">Tríduo Pascal</option><option value="pascal">Tempo Pascal</option></select></div><div class="config-field"><label for="celebracaoEspecial">3. Celebração específica</label><select id="celebracaoEspecial"><option value="habitual">Celebração habitual</option><option value="solenidade">Solenidade específica</option><option value="ritual">Missa ritual (ex.: Matrimônio)</option><option value="exequias">Missa exequial</option></select></div></div><div id="resumoConfiguracao" class="config-summary" aria-live="polite"></div><p class="config-help">O mapa mantém todos os momentos e as letras originais. Os elementos não previstos são identificados como <strong>Omitido</strong>, sem desaparecer.</p></div></div><div class="marcacao-legend"><span class="marcacao-pill marcar">Marcar</span><span class="marcacao-pill verificar">Verificar</span><span class="marcacao-pill nao-marcar">Não marcar</span><span class="muted">Baseado na apostila da formação; confirmar escolhas e fitas na prática.</span></div><div class="preparo-panel" id="preparoMissal"><h3><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoPreparo">📑 Páginas a preparar no Missal <span class="section-chevron">▴</span></button></h3><div id="conteudoPreparo" class="section-body"><p class="muted">Lista de estudo baseada na apostila de formação da paróquia. Não representa quantidade de fitas; confirme as escolhas e páginas com o sacerdote.</p><div class="preparo-grid"><div><strong>🟢 Marcar</strong><ul class="preparo-list" id="listaMarcar"></ul></div><div><strong>🟡 Verificar com o sacerdote</strong><ul class="preparo-list" id="listaVerificar"></ul></div></div><p class="preparo-note" id="notaPreparo"></p></div></div><div id="estrutura"></div></div></section>
+<section class="section"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoEstrutura">☷ 2. Mapa da estrutura da Missa <span class="section-chevron">▴</span></button></h2><div id="conteudoEstrutura" class="section-body"><p class="muted">Clique em um subitem (1A, 1B... 4U) para abrir automaticamente apenas as partes correspondentes no Mapa do Missal Romano.</p><div class="config-panel"><h3 class="config-title"><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoConfiguracao">⚙ Configuração da celebração <span class="section-chevron">▴</span></button></h3><div id="conteudoConfiguracao" class="section-body"><div class="config-grid"><div class="config-field"><label for="tipoMissa">1. Tipo de celebração</label><select id="tipoMissa"><option value="domingo">Dominical</option><option value="ferial">Ferial (dia de semana)</option><option value="solenidade">Solenidade</option><option value="festa">Festa</option><option value="memoria">Memória de santo</option></select></div><div class="config-field"><label for="tempoLiturgico">2. Tempo litúrgico</label><select id="tempoLiturgico"><option value="comum">Tempo Comum</option><option value="advento">Advento</option><option value="natal">Natal</option><option value="quaresma">Quaresma</option><option value="semanaSanta">Semana Santa</option><option value="triduo">Tríduo Pascal</option><option value="pascal">Tempo Pascal</option></select></div><div class="config-field"><label for="celebracaoEspecial">3. Celebração específica</label><select id="celebracaoEspecial"><option value="habitual">Celebração habitual</option><option value="solenidade">Solenidade específica</option><option value="ritual">Missa ritual (ex.: Matrimônio)</option><option value="exequias">Missa exequial</option></select></div></div><div id="resumoConfiguracao" class="config-summary" aria-live="polite"></div><p class="config-help">O mapa mantém todos os momentos e as letras originais. Os elementos não previstos são identificados como <strong>Omitido</strong>, sem desaparecer.</p></div></div><div class="marcacao-legend"><span class="marcacao-pill marcar">Marcar</span><span class="marcacao-pill verificar">Verificar</span><span class="marcacao-pill nao-marcar">Não marcar</span><span class="muted">Marcação conforme orientação prática do diácono; demais verificações para estudo.</span></div><div class="preparo-panel" id="preparoMissal"><h3><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoPreparo">📑 Páginas a preparar no Missal <span class="section-chevron">▴</span></button></h3><div id="conteudoPreparo" class="section-body"><p class="muted">Sequência prática informada pelo diácono da paróquia. A fita dos “Oremos” é usada em três momentos diferentes da Missa; confirme as páginas e as escolhas na formação prática.</p><div class="preparo-grid"><div><strong>🟢 Sequência das fitas</strong><ol class="preparo-list" id="listaMarcar"></ol></div><div><strong>🟡 Outras verificações</strong><ul class="preparo-list" id="listaVerificar"></ul></div></div><p class="preparo-note" id="notaPreparo"></p></div></div><div id="estrutura"></div></div></section>
 <section class="section"><div class="toolbar"><h2><button class="section-heading" type="button" aria-expanded="true" aria-controls="conteudoMissal">📖 3. Mapa do Missal Romano <span class="section-chevron">▴</span></button></h2><div><button class="btn" id="expand">Expandir tudo</button> <button class="btn" id="collapse">Recolher tudo</button></div></div><div id="conteudoMissal" class="section-body"><p class="muted">Clique na seção principal e depois no subitem para visualizar o terceiro nível. Os círculos 1A, 2F etc. indicam a correspondência com a estrutura da Missa.</p><div id="missal"></div><div class="note"><strong>Observação:</strong> este é um mapa didático das principais divisões do Missal, não uma transcrição literal do índice. Os círculos indicam relações didáticas; nem todo texto do calendário corresponde a uma etapa isolada. A numeração das páginas será incluída após a conferência do exemplar da paróquia. Eu, André, preciso providenciar umas fotos do índice do Missal..</div></div></section>
 <footer>Painel de estudo para formação de Ministro Extraordinário da Sagrada Comunhão</footer></main>
 <script>
@@ -154,12 +172,13 @@ function localizarReferencia(ref){
  $('missal').scrollIntoView({behavior:'smooth',block:'start'});
 }
 // Classificação inicial por referência: pode variar segundo o rito e o sacerdote.
-const marcarRefs=new Set(['1E','3M','3N','3O','3R']);
+const marcarRefs=new Set(['1E','3M','3N','3O','3P','3Q','3R']);
 const naoMarcarRefs=new Set(['2F','2G','2H','2I','4S','4U']); // 2K: Oração Universal requer verificação
 function classificarMarcacao(ref,estado,ritoEspecial){
  if(estado==='Omitido')return {texto:'Omitido',classe:'omitida'};
  if(ritoEspecial||estado==='Conferir rito')return {texto:'Verificar',classe:'verificar'};
  if(marcarRefs.has(ref))return {texto:'Marcar',classe:'marcar'};
+ if(ref==='4T')return {texto:'Verificar',classe:'verificar'}; // Bênção solene: fita somente se prevista e houver fita disponível.
  if(naoMarcarRefs.has(ref))return {texto:'Não marcar',classe:'nao-marcar'};
  return {texto:'Verificar',classe:'verificar'};
 }
@@ -200,28 +219,61 @@ function atualizarCelebracao(){
  });
  // Relação prática: exibe apenas os elementos efetivamente previstos e as verificações.
  const listaMarcar=$('listaMarcar'),listaVerificar=$('listaVerificar');
- listaMarcar.replaceChildren();listaVerificar.replaceChildren();
+ const estadoFitas=[...listaMarcar.querySelectorAll('details.fita-detalhes')].map(el=>el.open);
+  listaMarcar.replaceChildren();listaVerificar.replaceChildren();
  const nomeElemento={};
  estrutura.forEach((parte,i)=>parte.s.forEach((nome,j)=>{nomeElemento[refPorEtapa[i][j]]=nome}));
- const referenciasMarcar=['1E','3M','3N','3O','3R'];
- const referenciasVerificar=['1A','1B','1C','1D','2J','2K','3L','3P','3Q','4T'];
+ // A sequência das fitas segue a mensagem do diácono, não a ordem cronológica dos ritos.
+ const referenciasVerificar=['1A','1B','1C','1D','2J','2K','3L','4T'];
+ const porRef={};$('estrutura').querySelectorAll('.estrutura-item').forEach(el=>porRef[el.dataset.ref]=el);
  function itemPreparo(ref,extra=''){
    const li=makeNode('li','');
    li.append(makeNode('span','preparo-ref',ref+' — '),document.createTextNode(nomeElemento[ref]||ref));
    if(extra)li.append(makeNode('span','muted',' ('+extra+')'));
    return li;
  }
- const porRef={};$('estrutura').querySelectorAll('.estrutura-item').forEach(el=>porRef[el.dataset.ref]=el);
- for(const ref of referenciasMarcar){
-   if(porRef[ref]?.classList.contains('omitted'))continue;
-   listaMarcar.append(itemPreparo(ref,ref==='3N'?'prefácio escolhido':ref==='3O'?'oração eucarística escolhida':''));
+ function itemFita(titulo,refs,descricao){
+   const li=makeNode('li','fita-item');
+   const details=makeNode('details','fita-detalhes');
+   const indice=listaMarcar.children.length;
+   details.open=estadoFitas[indice]??false;
+   const summary=makeNode('summary','fita-cabecalho',titulo);
+   const conteudo=makeNode('div','fita-conteudo');
+   details.append(summary,conteudo);
+   if(descricao)conteudo.append(makeNode('p','fita-descricao',descricao));
+   if(refs.length){
+     const ul=makeNode('ul','fita-momentos');
+     refs.forEach(([ref,momento])=>{
+       if(porRef[ref]?.classList.contains('omitted'))return;
+       const item=makeNode('li','');
+       item.append(makeNode('span','preparo-ref',ref+' — '),document.createTextNode(momento));
+       ul.append(item);
+     });
+     conteudo.append(ul);
+   }
+   li.append(details);
+   listaMarcar.append(li);
  }
+ itemFita('Fita dos “Oremos” — utilizar em três momentos',[
+   ['1E','1º momento: Oração da coleta — Ritos Iniciais'],
+   ['3M','2º momento: Oração sobre as oferendas — após a preparação das oferendas, antes do Prefácio'],
+   ['3R','3º momento: Oração depois da Comunhão — após a Comunhão, antes dos Ritos Finais']
+ ],'A mesma fita de referência é consultada nos três momentos; é preciso saber quando retornar a ela.');
+ itemFita('Prefácio',[['3N','Prefácio escolhido']],'');
+ itemFita('Oração Eucarística',[['3O','Oração Eucarística escolhida']],'');
+ itemFita('Rito da Comunhão',[
+   ['3P','Pai-nosso e rito da paz'],
+   ['3Q','Fração do pão e Comunhão']
+ ],'Uma marcação para localizar o início do Rito da Comunhão; não significa duas fitas.');
+ itemFita('Bênção solene — condicional',[
+   ['4T','Bênção: verificar se será usada a fórmula solene']
+ ],'Colocar fita somente se houver bênção solene e fita disponível, conforme o diácono.');
  for(const ref of referenciasVerificar){
    if(porRef[ref]?.classList.contains('omitted'))continue;
    const el=porRef[ref];if(!el||!el.querySelector('.marcacao-pill.verificar'))continue;
-   listaVerificar.append(itemPreparo(ref));
+   listaVerificar.append(itemPreparo(ref,ref==='4T'?'confirmar bênção solene e disponibilidade de fita':''));
  }
- $('notaPreparo').textContent=(periodoEspecial||especialRito?'Celebração com rito próprio: esta lista é apenas um ponto de partida e deve ser integralmente conferida. ':'')+'As três orações próprias (1E, 3M e 3R) costumam estar reunidas no formulário da celebração. A apostila descreve os textos, mas não fixa quais fitas usar nem as páginas do exemplar da paróquia.';
+ $('notaPreparo').textContent=(periodoEspecial||especialRito?'Celebração com rito próprio: conferir a sequência com o sacerdote. ':'')+'Orientação do diácono: a fita dos “Oremos” é utilizada na coleta, na oração sobre as oferendas e na oração depois da Comunhão. A sequência acima não determina o número físico de fitas nem páginas exatas; isso será confirmado na aula prática.';
  const nomes={domingo:'Missa dominical',ferial:'Missa ferial',solenidade:'Solenidade',festa:'Festa',memoria:'Memória de santo'};
  const tempos={comum:'Tempo Comum',advento:'Advento',natal:'Natal',quaresma:'Quaresma',semanaSanta:'Semana Santa',triduo:'Tríduo Pascal',pascal:'Tempo Pascal'};
  const situacoes={habitual:'celebração habitual',solenidade:'solenidade específica',ritual:'Missa ritual',exequias:'Missa exequial'};
